@@ -1,0 +1,9 @@
+node {
+    checkout scm
+
+    docker.withServer('tcp://192.168.1.57:2375') {
+        docker.image('maven:3.9.0-eclipse-temurin-11') {
+            sh 'mvn --version'
+        }
+    }
+}
