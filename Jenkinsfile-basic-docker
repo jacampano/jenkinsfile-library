@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Back-end') {
             agent {
-                docker { image 'maven:3-alpine' }
+                docker.withServer('tcp://192.168.1.57:2375') { image 'maven:3-alpine' }
             }
             steps {
                 sh 'mvn --version'
